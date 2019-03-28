@@ -5,3 +5,10 @@ Fillit is a recursive backtracking algorithm that fits a set of Tetriminos in th
 Here is an example of valid map of Tetriminos (maximum of 26 blocks) from PDF which the code fits in the solution below:
 
 ![download](https://user-images.githubusercontent.com/35618858/55198688-3fcd8300-5174-11e9-83f4-4620fdaa2ca8.png)
+
+Installation:
+
+1. git clone https://github.com/Manmeet2018/Fillit_3rd-Project.git
+2. cd Fillit_3rd-Project.git
+3. run command: make
+4. ./fillit examples/full --> Choose any of the file which you want to run and see the output.

@@ -6,24 +6,24 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 22:10:47 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/27 22:48:26 by maparmar         ###   ########.fr       */
+/*   Updated: 2019/03/28 13:19:58 by bchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void        free_map(t_map *map)
+void		free_map(t_map *map)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (i < map->size)
-    {
-        ft_memdel((void **)&(map->arr[i]));
-        i++;
-    }
-    ft_memdel((void **)&(map->arr));
-    ft_memdel((void **)&map);
+	i = 0;
+	while (i < map->size)
+	{
+		ft_memdel((void **)&(map->arr[i]));
+		i++;
+	}
+	ft_memdel((void **)&(map->arr));
+	ft_memdel((void **)&map);
 }
 
 void		ft_free_token(t_tetris *tetri)
@@ -40,18 +40,18 @@ void		ft_free_token(t_tetris *tetri)
 	ft_memdel((void **)&tetri);
 }
 
-t_list       *ft_free_list(t_list *list)
+t_list		*ft_free_list(t_list *list)
 {
-    t_list *temp;
-    t_tetris *tetris;
+	t_list		*temp;
+	t_tetris	*tetris;
 
-    while(list)
-    {
-        tetris = (t_tetris *)(list->content);
-        temp = list->next;
-        ft_free_token(tetris);
+	while (list)
+	{
+		tetris = (t_tetris *)(list->content);
+		temp = list->next;
+		ft_free_token(tetris);
 		ft_memdel((void **)&list);
 		list = temp;
-    }
-    return(NULL);
+	}
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 14:59:32 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/27 22:49:12 by maparmar         ###   ########.fr       */
+/*   Updated: 2019/03/28 13:17:49 by bchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+
 typedef struct s_tetris
 {
 	char	**piece_pos;

@@ -6,7 +6,7 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:16:13 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/26 05:03:48 by maparmar         ###   ########.fr       */
+/*   Updated: 2019/03/27 22:46:38 by maparmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int     sqt_func(int n) // find the side of the map.
     return (side);
 }
 
-t_map   *make_map(int size) // make the map.
+t_map   *map_new(int size) // make the map.
 {
-    t_map *map;
-    int i;
-    int j;
+    t_map   *map;
+    int     i;
+    int     j;
 
     map = (t_map *)malloc(sizeof(t_map));
     map->size = size;
@@ -48,16 +48,16 @@ t_map   *make_map(int size) // make the map.
 
 t_map   *solve(t_list * list) // solve map by caling solve_map function
 {
-    int size;
-    t_map *map;
+    int     size;
+    t_map   *map;
 
     size = sqt_func(ft_len_lst(list) * 4);
-    map = make_map(size);
-    while (!solve_map(map, list))
+    map = map_new(size);
+    while (!map_solver(map, list))
     {
         size++;
         free_map(map);
-        map = make_map(size);
+        map = map_new(size);
     }
     return (map);
 }

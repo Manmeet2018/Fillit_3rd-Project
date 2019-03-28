@@ -6,7 +6,7 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 22:10:04 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/26 06:15:14 by maparmar         ###   ########.fr       */
+/*   Updated: 2019/03/27 22:48:28 by maparmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void ft_reverse_list(t_list **alst)
 	*alst = prev;
 }
 /***************Function to make a point********************/
-point *point_new(int a, int b)
+point *new_point(int a, int b)
 {
 	point *p;
 
@@ -39,14 +39,14 @@ point *point_new(int a, int b)
 	p->y = b;
 	return(p);
 }
-t_etris *tetris_new(char **pos, int b, int l, char value)
+t_tetris *new_token(char **pos, int b, int l, char value)
 {
-	t_etris *new;
+	t_tetris *new;
 
-	new = (t_etris *)malloc(sizeof(t_etris));
-	new->piece = pos;
+	new = (t_tetris *)malloc(sizeof(t_tetris));
+	new->piece_pos = pos;
 	new->length = l;
-	new->breadth = b;
+	new->breadth= b;
 	new->c = value;
 	return (new);
 }

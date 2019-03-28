@@ -6,7 +6,7 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 14:59:32 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/26 06:20:56 by maparmar         ###   ########.fr       */
+/*   Updated: 2019/03/27 22:49:12 by maparmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 #include "libft/libft.h"
 #include <stdio.h>
 #include <fcntl.h>
+#include <string.h>
+#include <unistd.h>
 #include <stdlib.h>
 typedef struct s_tetris
 {
-	char	**piece;
+	char	**piece_pos;
 	int		length;
 	int		breadth;
 	char	c;
-} 			t_etris;
+} 			t_tetris;
 
 typedef struct s_point
 {
@@ -37,22 +39,22 @@ typedef struct s_map
 }			t_map;
 
 t_list		*r_tetris(int fd);
-t_etris		*get_piece(char *str, char value);
+t_tetris	*get_token(char *str, char value);
 void		find_max_min(char *s, point *min, point *max);
-int			check_piece(char *str, int res);
-static int	valid_connection(char *str);
-t_etris		*tetris_new(char **pos, int l, int b, char value);
-point		*point_new(int a, int b);
-void		ft_reverse_list(t_list **alst);
+int			token_checker(char *str, int res);
+int			connection_checker(char *str);
+t_tetris	*new_token(char **pos, int l, int b, char value);
+point		*new_point(int a, int b);
+void		ft_reverse_list(t_list **begin_list);
 int			sqt_func(int n);
-t_map		*make_map(int size);
+t_map		*map_new(int size);
 t_map		*solve(t_list * list);
-int			solve_map(t_map *map, t_list *list);
-void 		put_piece(t_etris *tetri, t_map *map, point *point, char c);
-int			check_place(t_etris *tetri, t_map *map, int i, int j);
-int			solve_map(t_map *map, t_list *list);
+void 		put_token(t_tetris *tetri, t_map *map, point *point, char c);
+int			poistion_check(t_tetris *tetri, t_map *map, int i, int j);
+int			map_solver(t_map *map, t_list *list);
 int			ft_len_lst(t_list *l);
 void		free_map(t_map *map);
-void        ft_free_list(t_list *list);
-
+t_list      *ft_free_list(t_list *list);
+void		print_map(t_map *map);
+void		ft_free_token(t_tetris *tetri);
 #endif

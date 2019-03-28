@@ -6,7 +6,7 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 16:37:16 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/28 13:33:34 by bchapman         ###   ########.fr       */
+/*   Updated: 2019/03/28 15:51:57 by maparmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			token_checker(char *str, int res)
 	return (0);
 }
 
-void		find_max_min(char *s, point *min, point *max)
+void		find_max_min(char *s, t_point *min, t_point *max)
 {
 	int i;
 
@@ -90,8 +90,8 @@ t_tetris	*get_token(char *str, char value)
 {
 	char		**pos;
 	int			i;
-	point		*min;
-	point		*max;
+	t_point		*min;
+	t_point		*max;
 	t_tetris	*piece;
 
 	i = 0;

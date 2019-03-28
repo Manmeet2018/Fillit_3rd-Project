@@ -6,7 +6,7 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 22:10:04 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/28 13:11:59 by bchapman         ###   ########.fr       */
+/*   Updated: 2019/03/28 15:51:26 by maparmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void		ft_reverse_list(t_list **alst)
 	*alst = prev;
 }
 
-point		*new_point(int a, int b)
+t_point		*new_point(int a, int b)
 {
-	point *p;
+	t_point *p;
 
-	p = ft_memalloc(sizeof(point));
+	p = ft_memalloc(sizeof(t_point));
 	p->x = a;
 	p->y = b;
 	return (p);

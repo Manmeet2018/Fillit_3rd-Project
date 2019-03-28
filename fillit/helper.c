@@ -6,13 +6,13 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 22:10:04 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/27 22:48:28 by maparmar         ###   ########.fr       */
+/*   Updated: 2019/03/28 13:11:59 by bchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void ft_reverse_list(t_list **alst)
+void		ft_reverse_list(t_list **alst)
 {
 	t_list	*prev;
 	t_list	*cur;
@@ -29,29 +29,30 @@ void ft_reverse_list(t_list **alst)
 	}
 	*alst = prev;
 }
-/***************Function to make a point********************/
-point *new_point(int a, int b)
+
+point		*new_point(int a, int b)
 {
 	point *p;
 
 	p = ft_memalloc(sizeof(point));
 	p->x = a;
 	p->y = b;
-	return(p);
+	return (p);
 }
-t_tetris *new_token(char **pos, int b, int l, char value)
+
+t_tetris	*new_token(char **pos, int b, int l, char value)
 {
 	t_tetris *new;
 
 	new = (t_tetris *)malloc(sizeof(t_tetris));
 	new->piece_pos = pos;
 	new->length = l;
-	new->breadth= b;
+	new->breadth = b;
 	new->c = value;
 	return (new);
 }
 
-int ft_len_lst(t_list *l)
+int			ft_len_lst(t_list *l)
 {
 	int count;
 
@@ -61,5 +62,5 @@ int ft_len_lst(t_list *l)
 		l = l->next;
 		count++;
 	}
-	return(count);
+	return (count);
 }

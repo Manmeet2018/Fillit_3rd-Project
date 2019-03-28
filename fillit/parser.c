@@ -6,17 +6,16 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/16 16:37:16 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/27 22:48:35 by maparmar         ###   ########.fr       */
+/*   Updated: 2019/03/28 13:33:34 by bchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/************Check if the piece is valid or not*********/
 #include "fillit.h"
 
-int connection_checker(char *str) // if the connections are valid or not
+int			connection_checker(char *str)
 {
-	int j; // check all the character piece's
-	int ad_block; // will give no of adjacent block to each vallid char "#"
+	int	j;
+	int	ad_block;
 
 	j = 0;
 	ad_block = 0;
@@ -37,7 +36,8 @@ int connection_checker(char *str) // if the connections are valid or not
 	}
 	return (ad_block == 6 || ad_block == 8);
 }
-int token_checker(char *str, int res)
+
+int			token_checker(char *str, int res)
 {
 	int pos;
 	int no_block;
@@ -64,54 +64,46 @@ int token_checker(char *str, int res)
 	return (0);
 }
 
-/****************check if the piece is valid or not************/
-
-void find_max_min(char *s, point *min, point *max)
+void		find_max_min(char *s, point *min, point *max)
 {
 	int i;
 
 	i = 0;
-	while(i < 20)
+	while (i < 20)
 	{
-		if(s[i] == '#')
+		if (s[i] == '#')
 		{
-			if(i / 5 < min->y)
-			{
+			if (i / 5 < min->y)
 				min->y = i / 5;
-			}
-			if(i / 5 > max->y)
-			{
+			if (i / 5 > max->y)
 				max->y = i / 5;
-			}
-			if(i % 5 < min->x)
-			{
+			if (i % 5 < min->x)
 				min->x = i % 5;
-			}
-			if(i % 5 > max->x)
-			{
+			if (i % 5 > max->x)
 				max->x = i % 5;
-			}
 		}
 		i++;
 	}
 }
-t_tetris *get_token(char *str, char value)
+
+t_tetris	*get_token(char *str, char value)
 {
 	char		**pos;
 	int			i;
 	point		*min;
 	point		*max;
-	t_tetris		*piece;
-	
+	t_tetris	*piece;
+
 	i = 0;
 	min = new_point(3, 3);
 	max = new_point(0, 0);
-	find_max_min(str, min, max); 
+	find_max_min(str, min, max);
 	pos = (char **)ft_memalloc(sizeof(char *) * (max->y - min->y + 1));
-	while(i < max->y - min->y + 1)
+	while (i < max->y - min->y + 1)
 	{
 		pos[i] = ft_strnew(max->x - min->x + 1);
-		ft_strncpy(pos[i], str + (min->x) + (i + min->y) * 5, max->x - min->x + 1);
+		ft_strncpy(pos[i], str + (min->x) + (i + min->y) \
+				* 5, max->x - min->x + 1);
 		i++;
 	}
 	piece = new_token(pos, max->x - min->x + 1, max->y - min->y + 1, value);
@@ -120,32 +112,31 @@ t_tetris *get_token(char *str, char value)
 	return (piece);
 }
 
-t_list *r_tetris(int fd) // make the list with the pieces in correct manner 
+t_list		*r_tetris(int fd)
 {
-	t_list *list;
-	int res;
-	char *buff; // kill me
-	char c;
-	t_tetris *tetris; 
+	t_list		*list;
+	t_tetris	*tetris;
+	int			res;
+	char		*buff;
+	char		c;
 
 	buff = ft_strnew(21);
 	list = NULL;
 	c = 'A';
-	while((res = read(fd, buff, 21)) >= 20)
+	while ((res = read(fd, buff, 21)) >= 20)
 	{
-		if (token_checker(buff, res) != 0 || (tetris = get_token(buff, c++)) == NULL)
+		if (token_checker(buff, res) != 0 || \
+				(tetris = get_token(buff, c++)) == NULL)
 		{
 			ft_memdel((void **)&buff);
-			return(ft_free_list(list));
+			return (ft_free_list(list));
 		}
 		ft_lstadd(&list, ft_lstnew(tetris, sizeof(t_tetris)));
 		ft_memdel((void**)&tetris);
 	}
 	ft_memdel((void **)&buff);
 	if (res != 0)
-	{
-		return(ft_free_list(list));
-	}
+		return (ft_free_list(list));
 	ft_reverse_list(&list);
 	return (list);
 }

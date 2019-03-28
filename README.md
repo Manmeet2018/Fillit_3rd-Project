@@ -9,6 +9,6 @@ Here is an example of valid map of Tetriminos (maximum of 26 blocks) from PDF wh
 Installation:
 
 1. git clone https://github.com/Manmeet2018/Fillit_3rd-Project.git
-2. cd Fillit_3rd-Project.git
+2. cd Fillit_3rd-Project.git/fillit
 3. run command: make
 4. ./fillit examples/full --> Choose any of the file which you want to run and see the output.

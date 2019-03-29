@@ -11,4 +11,4 @@ Installation:
 1. git clone https://github.com/Manmeet2018/Fillit_3rd-Project.git
 2. cd Fillit_3rd-Project.git/fillit
 3. Run Command: make
-4. ./fillit examples/full --> Choose any of the file which you want to run and see the output.
+4. ./fillit examples/correct_file/ex* --> Choose any of the file from correct_file directory or error_file directory, which you want to run and see the output.

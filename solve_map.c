@@ -6,13 +6,13 @@
 /*   By: maparmar <maparmar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 17:22:30 by maparmar          #+#    #+#             */
-/*   Updated: 2019/03/28 13:39:09 by bchapman         ###   ########.fr       */
+/*   Updated: 2019/03/28 15:52:08 by maparmar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	put_token(t_tetris *tetri, t_map *map, point *p, char c)
+void	put_token(t_tetris *tetri, t_map *map, t_point *p, char c)
 {
 	int	i;
 	int	j;

@@ -1,6 +1,6 @@
 # Fillit_3rd-Project
 
-Fillit is a recursive backtracking algorithm that fits a set of Tetriminos in the smallest possible square without rotating the Tetriminos. More information can be found int the PDF.
+Fillit is a recursive backtracking algorithm that fits a set of Tetriminos in the smallest possible square without rotating the Tetriminos. More information can be found in the PDF.
 
 Here is an example of valid map of Tetriminos (maximum of 26 blocks) from PDF which the code fits in the solution below:
 
